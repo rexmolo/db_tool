@@ -33,7 +33,10 @@ class dictionary {
 		$html .= '<body>';
 		$html .= '<form method="post" action="/db/dictionary.php">';
 		$html .= '<select name="db">';
-		$html .= '<option value="1">你的select菜单</option>';
+		$html .= '<option value="1">213数据库[zhiliao_usersinfo]</option>';
+		$html .= '<option value="2">213数据库[zhiliao_comsinfo]</option>';
+		$html .= '<option value="3">213数据库[zhiliao_chart]</option>';
+		$html .= '<option value="4">213数据库[hr_ucenter]</option>';
 		$html .= '<option value="0">本地数据库</option>';
 		$html .= '</select>';
 		$html .= '	 <input type="submit" value="生成" />';
@@ -49,16 +52,16 @@ class dictionary {
 	public function switchDB( $selectedDB ) {
 		switch( $selectedDB ) {
 			case 1:
-				$dbConfig = 'usersinfo';
+				$dbConfig = 'test1';
 				break;
 			case 2:
-				$dbConfig = 'comsinfo';
+				$dbConfig = 'test2';
 				break;
 			case 3:
-				$dbConfig = 'chart';
+				$dbConfig = 'test3';
 				break;
 			case 4:
-				$dbConfig = 'hr_ucenter';
+				$dbConfig = 'test4';
 				break;
 			case 0:
 				$dbConfig = 'local';

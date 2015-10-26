@@ -1,4 +1,5 @@
 <?php
+namespace mh;
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -8,31 +9,55 @@
 
 class pdo_driver {
 
-	private $host     = '127.0.0.1';
-	private $db       = 'laravel5';
-	private $userName = 'root';
-	private $dbPass   = '';
+//	private $host     = '122.4.79.213';
+//	private $db       = 'zhiliao_usersinfo';//zhiliao_comsinfo
+//	private $userName = 'xzhiliao';
+//	private $dbPass   = '^YHNmju7';
 
+	private $host;
+	private $db;
+	private $userName;
+	private $dbPass;
 	private $dsn;
+	private $pdoDB;
 
-	public function __construct() {
+	public function __construct() {}
+
+	/**
+	 * 初始化数据库连接参数
+	 * @param $dbParams
+	 */
+	public function initDBParams( $dbParams ) {
+		foreach( $dbParams as $k => $v ){
+			$this->$k = $v;
+		}
 		$this->dsn = 'mysql:dbname=' . $this->db .';host='. $this->host .';';
+		$this->pdoDB = $this->connect();
+		$this->querySQL('SET NAMES utf8');
+		return $this->pdoDB;
 	}
 
+	/**
+	 * 执行连接数据库
+	 * @return bool|\PDO
+	 */
 	public function connect() {
 		try {
-			return $pdoDB = new PDO( $this->dsn, $this->userName, $this->dbPass );
+			return new \PDO( $this->dsn, $this->userName, $this->dbPass );
 		} catch ( PDOException $e ) {
 			echo 'Connection failed: '. $e->getMessage();
 			return false;
 		}
 	}
 
-
-//	$sql = 'SHOW TABLES';
-//	$statement = $pdoDB->prepare($sql);
-//	$statement->execute();
-//	$re = $statement->fetchAll();
-//	var_dump($re);
-
+	/**
+	 * 执行一条SQL语句,返回所有结果集
+	 * @param $sql
+	 * @return mixed
+	 */
+	public function querySQL( $sql ) {
+		$statement = $this->pdoDB->prepare($sql);
+		$statement->execute();
+		return $re = $statement->fetchAll(\PDO::FETCH_ASSOC);
+	}
 }

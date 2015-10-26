@@ -33,10 +33,7 @@ class dictionary {
 		$html .= '<body>';
 		$html .= '<form method="post" action="/db/dictionary.php">';
 		$html .= '<select name="db">';
-		$html .= '<option value="1">213数据库[zhiliao_usersinfo]</option>';
-		$html .= '<option value="2">213数据库[zhiliao_comsinfo]</option>';
-		$html .= '<option value="3">213数据库[zhiliao_chart]</option>';
-		$html .= '<option value="4">213数据库[hr_ucenter]</option>';
+		$html .= '<option value="1">你的select菜单</option>';
 		$html .= '<option value="0">本地数据库</option>';
 		$html .= '</select>';
 		$html .= '	 <input type="submit" value="生成" />';

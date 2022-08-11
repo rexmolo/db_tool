@@ -9,10 +9,10 @@ namespace mh;
 
 class pdo_driver {
 
-//	private $host     = '122.4.79.213';
-//	private $db       = 'zhiliao_usersinfo';//zhiliao_comsinfo
-//	private $userName = 'xzhiliao';
-//	private $dbPass   = '^YHNmju7';
+//	private $host     = '';
+//	private $db       = '';
+//	private $userName = '';
+//	private $dbPass   = '';
 
 	private $host;
 	private $db;
